@@ -1,4 +1,4 @@
-# Examples — MicroBlue
+# Examples - MicroBlue
 
 All examples ship with the library and are accessible via **File → Examples → MicroBlue** in the Arduino IDE.
 
@@ -30,7 +30,7 @@ void loop() {
 
 ### UNO_R4_WIFI_SERVO
 
-Controls a servo motor. The app sends an angle value (0–180) which is forwarded to a `Servo` object.
+Controls a servo motor. The app sends an angle value (0-180) which is forwarded to a `Servo` object.
 
 ```cpp
 #include <Servo.h>
@@ -136,7 +136,7 @@ Sends a BLE message when a button is pressed.
 
 ### HM10_BLE_WRITE_REPEAT
 
-Periodically sends a message to the app at a fixed interval — useful for streaming sensor data.
+Periodically sends a message to the app at a fixed interval - useful for streaming sensor data.
 
 ### HM10_BLE_WRITE_ULTRASONIC_SENSOR
 

@@ -1,4 +1,4 @@
-# Getting Started — MicroBlue
+# Getting Started - MicroBlue
 
 ## Installation
 
@@ -8,7 +8,7 @@
 2. Go to **Sketch → Include Library → Manage Libraries**.
 3. Search for `MicroBlue` and click **Install**.
 
-For the UNO R4 WiFi you also need the **ArduinoBLE** library — install it the same way.
+For the UNO R4 WiFi you also need the **ArduinoBLE** library - install it the same way.
 
 ### Manual Installation
 
@@ -21,7 +21,7 @@ For the UNO R4 WiFi you also need the **ArduinoBLE** library — install it the 
 
 ---
 
-## UNO R4 WiFi — Built-in BLE
+## UNO R4 WiFi - Built-in BLE
 
 No external module or wiring needed. The built-in BLE radio is used automatically.
 
@@ -44,13 +44,13 @@ void loop() {
 
 ---
 
-## Other Boards — HM-10 Module
+## Other Boards - HM-10 Module
 
 For boards without built-in BLE, connect an HM-10 module and pass its serial stream to `MicroBlueManager`.
 
 ### Wiring
 
-**UNO R4 Minima — Serial1**
+**UNO R4 Minima - Serial1**
 
 | HM-10 pin | Arduino pin |
 |-----------|-------------|
@@ -59,7 +59,7 @@ For boards without built-in BLE, connect an HM-10 module and pass its serial str
 | TX | D0 (Serial1 RX) |
 | RX | D1 (Serial1 TX) |
 
-**UNO R3 — SoftwareSerial**
+**UNO R3 - SoftwareSerial**
 
 | HM-10 pin | Arduino pin |
 |-----------|-------------|
@@ -117,6 +117,6 @@ void loop() {
 
 ## Next Steps
 
-- [API Reference](api-reference.md) — full class and method documentation
-- [Message Protocol](protocol.md) — wire format details
-- [Examples](examples.md) — working sketches for LEDs, buttons, sensors, and servos
+- [API Reference](api-reference.md) - full class and method documentation
+- [Message Protocol](protocol.md) - wire format details
+- [Examples](examples.md) - working sketches for LEDs, buttons, sensors, and servos

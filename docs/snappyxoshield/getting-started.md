@@ -1,4 +1,4 @@
-# Getting Started — SnappyXO Shield
+# Getting Started - SnappyXO Shield
 
 ## Installation
 
@@ -36,7 +36,7 @@ No special setup required. Just include the library:
 
 ---
 
-## Other Hardware — Shield v2.0.0+
+## Other Hardware - Shield v2.0.0+
 
 Define `SNAPPYXO_SHIELDV2` **before** the `#include` to select the v2 pin mapping:
 
@@ -96,5 +96,5 @@ See the [API Reference](api-reference.md) for full details.
 
 ## Next Steps
 
-- [API Reference](api-reference.md) — all functions documented
-- [Examples](examples.md) — BasicMotorControl, v2 variant, and MicroBlue robot
+- [API Reference](api-reference.md) - all functions documented
+- [Examples](examples.md) - BasicMotorControl, v2 variant, and MicroBlue robot

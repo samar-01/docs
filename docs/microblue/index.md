@@ -12,10 +12,10 @@ MicroBlue is an Arduino library that enables Bluetooth Low Energy (BLE) communic
 
 ## Key Features
 
-- **Single class** — `MicroBlueManager` works with both HM-10 and built-in BLE transports
-- **Message-based protocol** — compact framing using ID + value pairs
-- **Simple API** — `begin()`, `read()`, `write()`, `isConnected()`
-- **MIT licensed** — free for personal and commercial use
+- **Single class** - `MicroBlueManager` works with both HM-10 and built-in BLE transports
+- **Message-based protocol** - compact framing using ID + value pairs
+- **Simple API** - `begin()`, `read()`, `write()`, `isConnected()`
+- **MIT licensed** - free for personal and commercial use
 
 ## Source
 

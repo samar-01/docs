@@ -1,4 +1,4 @@
-# Examples — SnappyXO Shield
+# Examples - SnappyXO Shield
 
 All examples ship with the library and are accessible via **File → Examples → SnappyXOShield** in the Arduino IDE.
 
@@ -103,4 +103,4 @@ void loop() {
 }
 ```
 
-The app sends joystick values in the range 0–1024; subtracting 512 maps them to the −512 to +512 range expected by `drive()`. See the [MicroBlue examples](../microblue/examples.md) for more BLE communication patterns.
+The app sends joystick values in the range 0-1024; subtracting 512 maps them to the -512 to +512 range expected by `drive()`. See the [MicroBlue examples](../microblue/examples.md) for more BLE communication patterns.

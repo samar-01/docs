@@ -1,4 +1,4 @@
-# API Reference — SnappyXO Shield
+# API Reference - SnappyXO Shield
 
 Include the library with:
 
@@ -6,7 +6,7 @@ Include the library with:
 #include <SnappyXOShield.h>
 ```
 
-The library is header-only — all functions are defined in `SnappyXOShield.h`.
+The library is header-only - all functions are defined in `SnappyXOShield.h`.
 
 For Shield v2.0.0+ only, define `SNAPPYXO_SHIELDV2` **before** the include:
 
@@ -52,7 +52,7 @@ void forward();
 void forward(int speed);
 ```
 
-Drives both motors forward. `speed` is 0–255 (full speed when omitted).
+Drives both motors forward. `speed` is 0-255 (full speed when omitted).
 
 ### `reverse()`
 
@@ -61,7 +61,7 @@ void reverse();
 void reverse(int speed);
 ```
 
-Drives both motors in reverse. `speed` is 0–255.
+Drives both motors in reverse. `speed` is 0-255.
 
 ### `turnLeft()`
 
@@ -70,7 +70,7 @@ void turnLeft();
 void turnLeft(int speed);
 ```
 
-Pivots left in place — left motor backward, right motor forward. `speed` is 0–255.
+Pivots left in place - left motor backward, right motor forward. `speed` is 0-255.
 
 ### `turnRight()`
 
@@ -79,7 +79,7 @@ void turnRight();
 void turnRight(int speed);
 ```
 
-Pivots right in place — left motor forward, right motor backward. `speed` is 0–255.
+Pivots right in place - left motor forward, right motor backward. `speed` is 0-255.
 
 ---
 
@@ -115,8 +115,8 @@ Joystick-style differential drive. Mixes throttle and steering into independent 
 
 | Parameter | Range | Description |
 |-----------|-------|-------------|
-| `throttle` | −512 to +512 | Forward (+) / reverse (−) |
-| `steering` | −512 to +512 | Right (+) / left (−) |
+| `throttle` | -512 to +512 | Forward (+) / reverse (-) |
+| `steering` | -512 to +512 | Right (+) / left (-) |
 
 **Behaviour:**
 
@@ -146,4 +146,4 @@ drive(0, -300);
 void _motorWrite(int leftSpeed, int rightSpeed);
 ```
 
-Low-level motor write. `leftSpeed` and `rightSpeed` are −255 to +255; positive = forward. Applies inversion flags and sets the H-bridge pins directly. Prefer the named movement functions over calling this directly.
+Low-level motor write. `leftSpeed` and `rightSpeed` are -255 to +255; positive = forward. Applies inversion flags and sets the H-bridge pins directly. Prefer the named movement functions over calling this directly.

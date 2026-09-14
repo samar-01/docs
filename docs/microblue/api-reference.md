@@ -1,4 +1,4 @@
-# API Reference — MicroBlue
+# API Reference - MicroBlue
 
 Include the library with:
 
@@ -67,7 +67,7 @@ Manages the BLE connection and message I/O.
 MicroBlueManager();
 ```
 
-No arguments — uses the board's integrated BLE radio via the ArduinoBLE library.
+No arguments - uses the board's integrated BLE radio via the ArduinoBLE library.
 
 ```cpp
 MicroBlueManager manager;
@@ -95,7 +95,7 @@ MicroBlueManager manager(bleSerial);
 #### `begin()`
 
 ```cpp
-void begin(const char* name);    // Built-in BLE mode — sets the BLE device name
+void begin(const char* name);    // Built-in BLE mode - sets the BLE device name
 void begin();                    // HM-10 mode
 ```
 
