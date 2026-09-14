@@ -1,0 +1,54 @@
+site_name: SnappyXO Arduino Libraries
+site_description: Documentation for the MicroBlue and SnappyXO Motor Shield Arduino libraries
+site_url: https://snappyxo.github.io/
+repo_url: https://github.com/snappyxo/libraries
+edit_uri: ""
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - toc.integrate
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - admonition
+  - pymdownx.details
+  - tables
+  - attr_list
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - MicroBlue:
+    - Overview: microblue/index.md
+    - Getting Started: microblue/getting-started.md
+    - API Reference: microblue/api-reference.md
+    - Message Protocol: microblue/protocol.md
+    - Examples: microblue/examples.md
+  - SnappyXO Shield:
+    - Overview: snappyxoshield/index.md
+    - Getting Started: snappyxoshield/getting-started.md
+    - API Reference: snappyxoshield/api-reference.md
+    - Examples: snappyxoshield/examples.md
