@@ -39,6 +39,9 @@ markdown_extensions:
   - toc:
       permalink: true
 
+extra_javascript:
+  - javascripts/version-check.js
+
 nav:
   - Home: index.md
   - MicroBlue:
