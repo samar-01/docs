@@ -8,10 +8,21 @@
 | Battery screw terminals | Green | Alternative battery input |
 | DC motor JST connectors | White | Primary motor outputs (up to 2 motors) |
 | DC motor screw terminals | Green | Alternative motor outputs (up to 2 additional motors) |
-| Servo headers | - | 4 servo outputs, powered by the 6 V regulator |
+| Servo headers | - | 4 servo outputs (A0, A1, A2, A3), powered by the 6 V regulator |
 | Slide switch | - | Switches shield power on/off |
-| PCA9685 I2C header | - | Expansion header for up to 16 additional servos |
-| ICSP header | - | In-circuit serial programming |
+<!-- | PCA9685 I2C header | - | Expansion header for up to 16 additional servos | -->
+<!-- | ICSP header | - | In-circuit serial programming | -->
+
+---
+
+## Servo Header Mapping
+
+| Header label | Arduino pin |
+|--------------|------------|
+| A0 | A0 |
+| A1 | A1 |
+| A2 | A2 |
+| A3 | A3 |
 
 ---
 

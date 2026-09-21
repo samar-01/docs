@@ -24,9 +24,11 @@ Simplified motor control for the **SnappyXO Motor Shield**. Full-speed and varia
 
 ## Hardware
 
-### [Hardware Overview](hardware/motor-shield/index.md)
+### [SnappyXO Motor Shield](hardware/motor-shield/index.md)
 
-Documentation for SnappyXO hardware products - coming soon.
+An Arduino Uno shield designed to make motor control easy.
+
+[Get started](hardware/motor-shield/getting-started.md) | [Connectors](hardware/motor-shield/connectors.md) | [Expansion](hardware/motor-shield/expansion.md)
 
 ---
 
