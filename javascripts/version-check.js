@@ -1,7 +1,7 @@
 (async function () {
   const DOCUMENTED = {
     microblue: "2.0.0",
-    snappyxoshield: "0.2.0",
+    snappyxoshield: "0.2.1",
   };
 
   const REPOS = {
@@ -63,6 +63,10 @@
 
   const latest = await fetchLatestRelease(REPOS[library]);
   if (!latest) return;
+
+  // Update version display element if present on this page
+  const versionEl = document.getElementById(`lib-version-${library}`);
+  if (versionEl) versionEl.textContent = latest;
 
   const diff = classifyDiff(DOCUMENTED[library], latest);
   if (diff === "equal" || diff === "older") return;

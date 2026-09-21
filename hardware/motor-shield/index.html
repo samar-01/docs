@@ -995,6 +995,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#leds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LEDs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#shield-versions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1040,6 +1051,34 @@
     
   
     Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
   
 
     
@@ -1143,7 +1182,7 @@
 
 <h1 id="snappyxo-motor-shield">SnappyXO Motor Shield<a class="headerlink" href="#snappyxo-motor-shield" title="Permanent link">&para;</a></h1>
 <p>The SnappyXO Motor Shield stacks onto an Arduino Uno and provides regulated power, motor control, and servo output for robotics projects.</p>
-<p><a href="getting-started/">Get started</a> | <a href="connectors/">Connectors</a> | <a href="expansion/">Expansion</a></p>
+<p><a href="getting-started/">Get started</a> | <a href="power/">Power</a> | <a href="connectors/">Connectors</a> | <a href="expansion/">Expansion</a></p>
 <p><img alt="SnappyXO Motor Shield v3" src="motorshieldv3.avif" /></p>
 <hr />
 <h2 id="compatible-boards">Compatible Boards<a class="headerlink" href="#compatible-boards" title="Permanent link">&para;</a></h2>
@@ -1207,7 +1246,35 @@
 </tr>
 </tbody>
 </table>
-<p>The 6 V regulator powers both the DC motor outputs and the servo headers. The battery input also powers the Arduino through the VIN pin, while remaining compatible with USB or barrel jack power.</p>
+<p>See the <a href="power/">Power</a> page for details on how power sources interact and recommended setups.</p>
+<hr />
+<h2 id="leds">LEDs<a class="headerlink" href="#leds" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>LED</th>
+<th>Color</th>
+<th>Indicates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shield power</td>
+<td>Green</td>
+<td>Shield battery is connected and the slide switch is on</td>
+</tr>
+<tr>
+<td>UNO power</td>
+<td>Green</td>
+<td>Arduino is powered - either by the shield, or by its own barrel jack or USB</td>
+</tr>
+<tr>
+<td>D13</td>
+<td>White</td>
+<td>Connected to digital pin 13, same as the Arduino's built-in LED</td>
+</tr>
+</tbody>
+</table>
 <hr />
 <h2 id="shield-versions">Shield Versions<a class="headerlink" href="#shield-versions" title="Permanent link">&para;</a></h2>
 <table>

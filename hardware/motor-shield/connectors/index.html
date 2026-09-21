@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://snappyxo.github.io/docs/hardware/motor-shield/connectors/">
       
       
-        <link rel="prev" href="../getting-started/">
+        <link rel="prev" href="../power/">
       
       
         <link rel="next" href="../expansion/">
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#connectors-snappyxo-motor-shield" class="md-skip">
+        <a href="#connectors" class="md-skip">
           Skip to content
         </a>
       
@@ -955,6 +955,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1022,6 +1050,17 @@
     <span class="md-ellipsis">
       
         Onboard Connectors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#servo-header-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Servo Header Mapping
       
     </span>
   </a>
@@ -1136,7 +1175,7 @@
 
 
 
-<h1 id="connectors-snappyxo-motor-shield">Connectors - SnappyXO Motor Shield<a class="headerlink" href="#connectors-snappyxo-motor-shield" title="Permanent link">&para;</a></h1>
+<h1 id="connectors">Connectors<a class="headerlink" href="#connectors" title="Permanent link">&para;</a></h1>
 <h2 id="onboard-connectors">Onboard Connectors<a class="headerlink" href="#onboard-connectors" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1170,22 +1209,43 @@
 <tr>
 <td>Servo headers</td>
 <td>-</td>
-<td>4 servo outputs, powered by the 6 V regulator</td>
+<td>4 servo outputs (A0, A1, A2, A3), powered by the 6 V regulator</td>
 </tr>
 <tr>
 <td>Slide switch</td>
 <td>-</td>
 <td>Switches shield power on/off</td>
 </tr>
+</tbody>
+</table>
+<!-- | PCA9685 I2C header | - | Expansion header for up to 16 additional servos | -->
+<!-- | ICSP header | - | In-circuit serial programming | -->
+
+<hr />
+<h2 id="servo-header-mapping">Servo Header Mapping<a class="headerlink" href="#servo-header-mapping" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
 <tr>
-<td>PCA9685 I2C header</td>
-<td>-</td>
-<td>Expansion header for up to 16 additional servos</td>
+<th>Header label</th>
+<th>Arduino pin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A0</td>
+<td>A0</td>
 </tr>
 <tr>
-<td>ICSP header</td>
-<td>-</td>
-<td>In-circuit serial programming</td>
+<td>A1</td>
+<td>A1</td>
+</tr>
+<tr>
+<td>A2</td>
+<td>A2</td>
+</tr>
+<tr>
+<td>A3</td>
+<td>A3</td>
 </tr>
 </tbody>
 </table>
