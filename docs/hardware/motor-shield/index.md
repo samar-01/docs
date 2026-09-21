@@ -1,12 +1,43 @@
 # SnappyXO Motor Shield
 
-The SnappyXO Motor Shield is an Arduino shield for controlling two DC motors. It uses an H-bridge motor driver circuit and stacks directly onto an Arduino Uno board.
+The SnappyXO Motor Shield stacks onto an Arduino Uno and provides regulated power, motor control, and servo output for robotics projects.
+
+[Get started](getting-started.md) | [Connectors](connectors.md) | [Expansion](expansion.md)
+
+![SnappyXO Motor Shield v3](motorshieldv3.avif)
+
+---
 
 ## Compatible Boards
 
 - Arduino UNO R3
 - Arduino UNO R4 Minima
 - Arduino UNO R4 WiFi
+
+---
+
+## Motor and Servo Capacity
+
+| Configuration | DC Motors | Servos |
+|---------------|-----------|--------|
+| Typical | 2 (via JST) | 4 (onboard headers) |
+| Maximum | 4 (JST + screw terminals) | 4 onboard + 16 via PCA9685 expansion |
+
+---
+
+## Power
+
+| Parameter | Value |
+|-----------|-------|
+| Input voltage | 3-13 V |
+| Supported batteries | 6 V pack, 9 V battery, 1S-3S LiPo |
+| Regulated output | 6 V (buck-boost regulator) |
+| Reverse polarity protection | Yes |
+| Overcurrent protection | Self-resetting fuse |
+
+The 6 V regulator powers both the DC motor outputs and the servo headers. The battery input also powers the Arduino through the VIN pin, while remaining compatible with USB or barrel jack power.
+
+---
 
 ## Shield Versions
 
@@ -15,61 +46,11 @@ The SnappyXO Motor Shield is an Arduino shield for controlling two DC motors. It
 | v3.0.0+ | Current version - default pin mapping |
 | v2.0.0+ | Previous version - select with `#define SNAPPYXO_SHIELDV2` |
 
----
-
-## Pin Mapping
-
-### v3.0.0+
-
-| Signal | Left motor | Right motor |
-|--------|-----------|------------|
-| IN1 | 4 | 8 |
-| IN2 | 7 | 9 |
-| Enable (PWM) | 5 | 6 |
-
-### v2.0.0+
-
-| Signal | Left motor | Right motor |
-|--------|-----------|------------|
-| IN1 | 4 | 12 |
-| IN2 | 5 | 13 |
-| Enable (PWM) | 6 | 11 |
-
-The Enable pins are PWM-capable, allowing variable motor speed (0-255).
+!!! note "Bought a kit after 2026?"
+    You have a v3 shield. Ignore all v2 information on this page.
 
 ---
 
-## Electrical Specifications
+## Software Library
 
-| Parameter | Value |
-|-----------|-------|
-| Motor supply voltage | <!-- e.g. 6-12 V --> |
-| Logic voltage | 5 V |
-| Max motor current (per channel) | <!-- e.g. 1 A --> |
-| Motor driver IC | <!-- e.g. L298N --> |
-
-!!! note
-    Fill in the table above with the values from the hardware datasheet.
-
----
-
-## Using the Software Library
-
-The [SnappyXOShield](../../software/snappyxoshield/index.md) Arduino library provides a simple API for this hardware. Install it via the Arduino Library Manager and call `initMotors()` in your sketch setup.
-
-```cpp
-#include <SnappyXOShield.h>
-
-void setup() {
-  initMotors();
-}
-
-void loop() {
-  forward();
-  delay(1000);
-  pause();
-  delay(1000);
-}
-```
-
-See the [SnappyXOShield getting started guide](../../software/snappyxoshield/getting-started.md) for full wiring and usage instructions.
+The [SnappyXOShield](../../software/snappyxoshield/index.md) Arduino library provides a simple API for this hardware. Install it via the Arduino Library Manager.

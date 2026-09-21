@@ -38,6 +38,9 @@ No special setup required. Just include the library:
 
 ## Other Hardware - Shield v2.0.0+
 
+!!! note "Bought a kit after 2026?"
+    You have a v3 shield. Ignore this section.
+
 Define `SNAPPYXO_SHIELDV2` **before** the `#include` to select the v2 pin mapping:
 
 ```cpp

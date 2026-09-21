@@ -9,6 +9,9 @@ SnappyXOShield is an Arduino library for simplified motor control with the Snapp
 | v3.0.0+ | Default - just `#include <SnappyXOShield.h>` |
 | v2.0.0+ | Define `SNAPPYXO_SHIELDV2` *before* the `#include` |
 
+!!! note "Bought a kit after 2026?"
+    You have a v3 shield. Ignore all v2 information on this page.
+
 ## Key Features
 
 - Full-speed and variable-speed movement commands

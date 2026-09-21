@@ -8,6 +8,9 @@ Include the library with:
 
 The library is header-only - all functions are defined in `SnappyXOShield.h`.
 
+!!! note "Bought a kit after 2026?"
+    You have a v3 shield. Ignore the v2 section below.
+
 For Shield v2.0.0+ only, define `SNAPPYXO_SHIELDV2` **before** the include:
 
 ```cpp

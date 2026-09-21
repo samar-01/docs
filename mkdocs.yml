@@ -1,8 +1,8 @@
-site_name: SnappyXO Arduino Libraries
-site_description: Documentation for the MicroBlue and SnappyXO Motor Shield Arduino libraries
+site_name: SnappyXO Products Documentation
+site_description: Documentation for SnappyXO hardware and software.
 site_url: https://snappyxo.github.io/
-repo_url: https://github.com/snappyxo/libraries
-edit_uri: ""
+# repo_url: https://github.com/snappyxo/libraries
+# edit_uri: ""
 
 theme:
   name: material
@@ -58,4 +58,8 @@ nav:
       - API Reference: software/snappyxoshield/api-reference.md
       - Examples: software/snappyxoshield/examples.md
   - Hardware:
-    - SnappyXO Motor Shield: hardware/motor-shield/index.md
+    - SnappyXO Motor Shield:
+      - Overview: hardware/motor-shield/index.md
+      - Getting Started: hardware/motor-shield/getting-started.md
+      - Connectors: hardware/motor-shield/connectors.md
+      - Expansion: hardware/motor-shield/expansion.md

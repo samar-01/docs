@@ -37,6 +37,9 @@ void loop() {
 
 ## BasicMotorControl_ShieldV2
 
+!!! note "Bought a kit after 2026?"
+    You have a v3 shield. Ignore this example and use `BasicMotorControl` instead.
+
 Identical logic to `BasicMotorControl`, but targets the **SnappyXO Motor Shield v2**. The only difference is the `#define` before the include.
 
 ```cpp
