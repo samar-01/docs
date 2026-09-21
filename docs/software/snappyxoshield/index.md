@@ -21,8 +21,12 @@ SnappyXOShield is an Arduino library for simplified motor control with the Snapp
 - Motor inversion flags for reversed or swapped wiring
 - Header-only - no `.cpp` file to compile
 
+## Installation
+
+Install from the **Arduino Library Manager**: search for `SnappyXOShield` and click Install.
+
 ## Source
 
-- **Version**: 0.2.0
+- **Version**: <span id="lib-version-snappyxoshield">0.2.0</span>
 - **GitHub**: [snappyxo/SnappyXOShield](https://github.com/snappyxo/SnappyXOShield)
 - **License**: GPL-3.0

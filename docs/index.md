@@ -30,13 +30,3 @@ An Arduino Uno shield designed to make motor control easy.
 
 [Get started](hardware/motor-shield/getting-started.md) | [Connectors](hardware/motor-shield/connectors.md) | [Expansion](hardware/motor-shield/expansion.md)
 
----
-
-## Library Installation
-
-Both libraries can be installed from the **Arduino Library Manager** (Sketch → Include Library → Manage Libraries).
-
-| Library | Version | Search name | GitHub |
-|---------|---------|-------------|--------|
-| MicroBlue | 2.0.0 | `MicroBlue` | [snappyxo/microblue-arduino](https://github.com/snappyxo/microblue-arduino) |
-| SnappyXOShield | 0.2.0 | `SnappyXOShield` | [snappyxo/SnappyXOShield](https://github.com/snappyxo/SnappyXOShield) |

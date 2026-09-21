@@ -17,8 +17,12 @@ MicroBlue is an Arduino library that enables Bluetooth Low Energy (BLE) communic
 - **Simple API** - `begin()`, `read()`, `write()`, `isConnected()`
 - **MIT licensed** - free for personal and commercial use
 
+## Installation
+
+Install from the **Arduino Library Manager**: search for `MicroBlue` and click Install. For the UNO R4 WiFi, also install the **ArduinoBLE** library.
+
 ## Source
 
-- **Version**: 2.0.0
+- **Version**: <span id="lib-version-microblue">2.0.0</span>
 - **GitHub**: [snappyxo/microblue-arduino](https://github.com/snappyxo/microblue-arduino)
 - **License**: MIT (main library & examples) / GPL v3 (`Rename_HM10_Bluetooth` utility only)
