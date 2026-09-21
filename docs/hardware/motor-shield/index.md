@@ -39,6 +39,16 @@ See the [Power](power.md) page for details on how power sources interact and rec
 
 ---
 
+## LEDs
+
+| LED | Color | Indicates |
+|-----|-------|-----------|
+| Shield power | Green | Shield battery is connected and the slide switch is on |
+| UNO power | Green | Arduino is powered - either by the shield, or by its own barrel jack or USB |
+| D13 | White | Connected to digital pin 13, same as the Arduino's built-in LED |
+
+---
+
 ## Shield Versions
 
 | Version | Notes |
