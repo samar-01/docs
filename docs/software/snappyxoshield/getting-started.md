@@ -36,28 +36,6 @@ No special setup required. Just include the library:
 
 ---
 
-## Other Hardware - Shield v2.0.0+
-
-!!! note "Bought a kit after 2026?"
-    You have a v3 shield. Ignore this section.
-
-Define `SNAPPYXO_SHIELDV2` **before** the `#include` to select the v2 pin mapping:
-
-```cpp
-#define SNAPPYXO_SHIELDV2
-#include <SnappyXOShield.h>
-```
-
-**Pin mapping:**
-
-| Signal | Left motor | Right motor |
-|--------|-----------|------------|
-| IN1 | 4 | 12 |
-| IN2 | 5 | 13 |
-| Enable (PWM) | 6 | 11 |
-
----
-
 ## Minimal Sketch
 
 ```cpp
@@ -101,3 +79,25 @@ See the [API Reference](api-reference.md) for full details.
 
 - [API Reference](api-reference.md) - all functions documented
 - [Examples](examples.md) - BasicMotorControl, v2 variant, and MicroBlue robot
+
+---
+
+## Other Hardware - Shield v2.0.0+
+
+!!! note "Bought a kit after 2026?"
+    You have a v3 shield. Ignore this section.
+
+Define `SNAPPYXO_SHIELDV2` **before** the `#include` to select the v2 pin mapping:
+
+```cpp
+#define SNAPPYXO_SHIELDV2
+#include <SnappyXOShield.h>
+```
+
+**Pin mapping:**
+
+| Signal | Left motor | Right motor |
+|--------|-----------|------------|
+| IN1 | 4 | 12 |
+| IN2 | 5 | 13 |
+| Enable (PWM) | 6 | 11 |

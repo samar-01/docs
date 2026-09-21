@@ -26,7 +26,7 @@ Plug DC motors into the **white JST motor connectors** on the shield - these are
 | Motor A JST | Left motor |
 | Motor B JST | Right motor |
 
-If your motors are spinning the wrong way after uploading a sketch, swap the two wires on that motor's connector, or use the inversion flags in `initMotors()` - see the [SnappyXOShield API reference](../../software/snappyxoshield/api-reference.md).
+If your motors are spinning the wrong way after uploading a sketch, use the inversion flags in `initMotors()` - see the [SnappyXOShield API reference](../../software/snappyxoshield/api-reference.md). Alternatively, you can swap the two wires on that motor's connector.
 
 ---
 
