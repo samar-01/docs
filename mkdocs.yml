@@ -45,14 +45,17 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - MicroBlue:
-    - Overview: microblue/index.md
-    - Getting Started: microblue/getting-started.md
-    - API Reference: microblue/api-reference.md
-    - Message Protocol: microblue/protocol.md
-    - Examples: microblue/examples.md
-  - SnappyXO Shield:
-    - Overview: snappyxoshield/index.md
-    - Getting Started: snappyxoshield/getting-started.md
-    - API Reference: snappyxoshield/api-reference.md
-    - Examples: snappyxoshield/examples.md
+  - Software:
+    - MicroBlue:
+      - Overview: software/microblue/index.md
+      - Getting Started: software/microblue/getting-started.md
+      - API Reference: software/microblue/api-reference.md
+      - Message Protocol: software/microblue/protocol.md
+      - Examples: software/microblue/examples.md
+    - SnappyXOShield:
+      - Overview: software/snappyxoshield/index.md
+      - Getting Started: software/snappyxoshield/getting-started.md
+      - API Reference: software/snappyxoshield/api-reference.md
+      - Examples: software/snappyxoshield/examples.md
+  - Hardware:
+    - SnappyXO Motor Shield: hardware/motor-shield/index.md

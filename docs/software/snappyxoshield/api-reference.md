@@ -1,4 +1,4 @@
-# API Reference - SnappyXO Shield
+# API Reference - SnappyXOShield
 
 Include the library with:
 
