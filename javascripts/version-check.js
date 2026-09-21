@@ -11,7 +11,11 @@
 
   // Returns 'newer', 'older', 'equal', or 'patch-only' if only the patch changed
   function classifyDiff(documented, latest) {
-    if (!compareVersions.validate(documented) || !compareVersions.validate(latest)) return "equal";
+    if (
+      !compareVersions.validate(documented) ||
+      !compareVersions.validate(latest)
+    )
+      return "equal";
     const result = compareVersions.compareVersions(latest, documented);
     if (result === 0) return "equal";
     if (result < 0) return "older";
@@ -28,7 +32,9 @@
   if (!library) return;
 
   async function fetchLatestRelease(repo) {
-    const mock = new URLSearchParams(window.location.search).get("mock_release");
+    const mock = new URLSearchParams(window.location.search).get(
+      "mock_release",
+    );
     if (mock) return mock;
 
     const cacheKey = `release_check_${repo}`;
