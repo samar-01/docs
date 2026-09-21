@@ -1,4 +1,4 @@
-# Examples - MicroBlue
+# Examples
 
 All examples ship with the library and are accessible via **File → Examples → MicroBlue** in the Arduino IDE.
 

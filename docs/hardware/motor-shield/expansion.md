@@ -1,4 +1,4 @@
-# Expansion - SnappyXO Motor Shield
+# Expansion
 
 ## PCA9685 I2C Header
 

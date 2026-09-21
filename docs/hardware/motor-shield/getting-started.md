@@ -1,4 +1,4 @@
-# Getting Started - SnappyXO Motor Shield
+# Getting Started
 
 ## What You Need
 

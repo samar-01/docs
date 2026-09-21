@@ -1,4 +1,4 @@
-# Getting Started - SnappyXOShield
+# Getting Started
 
 ## Installation
 

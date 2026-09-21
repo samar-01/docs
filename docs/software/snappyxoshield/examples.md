@@ -1,4 +1,4 @@
-# Examples - SnappyXOShield
+# Examples
 
 All examples ship with the library and are accessible via **File → Examples → SnappyXOShield** in the Arduino IDE.
 

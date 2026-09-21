@@ -1,4 +1,4 @@
-# Message Protocol - MicroBlue
+# Message Protocol
 
 MicroBlue uses a lightweight framed binary protocol to carry ID/value pairs over the BLE serial stream.
 

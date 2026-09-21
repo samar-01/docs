@@ -1,4 +1,4 @@
-# Connectors - SnappyXO Motor Shield
+# Connectors
 
 ## Onboard Connectors
 

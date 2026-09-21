@@ -1,4 +1,4 @@
-# Getting Started - MicroBlue
+# Getting Started
 
 ## Installation
 

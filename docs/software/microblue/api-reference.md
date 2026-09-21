@@ -1,4 +1,4 @@
-# API Reference - MicroBlue
+# API Reference
 
 Include the library with:
 
