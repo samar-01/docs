@@ -61,5 +61,6 @@ nav:
     - SnappyXO Motor Shield:
       - Overview: hardware/motor-shield/index.md
       - Getting Started: hardware/motor-shield/getting-started.md
+      - Power: hardware/motor-shield/power.md
       - Connectors: hardware/motor-shield/connectors.md
       - Expansion: hardware/motor-shield/expansion.md

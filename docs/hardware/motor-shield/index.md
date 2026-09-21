@@ -2,7 +2,7 @@
 
 The SnappyXO Motor Shield stacks onto an Arduino Uno and provides regulated power, motor control, and servo output for robotics projects.
 
-[Get started](getting-started.md) | [Connectors](connectors.md) | [Expansion](expansion.md)
+[Get started](getting-started.md) | [Power](power.md) | [Connectors](connectors.md) | [Expansion](expansion.md)
 
 ![SnappyXO Motor Shield v3](motorshieldv3.avif)
 
@@ -35,7 +35,7 @@ The SnappyXO Motor Shield stacks onto an Arduino Uno and provides regulated powe
 | Reverse polarity protection | Yes |
 | Overcurrent protection | Self-resetting fuse |
 
-The 6 V regulator powers both the DC motor outputs and the servo headers. The battery input also powers the Arduino through the VIN pin, while remaining compatible with USB or barrel jack power.
+See the [Power](power.md) page for details on how power sources interact and recommended setups.
 
 ---
 
