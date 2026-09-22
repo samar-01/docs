@@ -4,13 +4,14 @@ SnappyXOShield is an Arduino library for simplified motor control with the Snapp
 
 ## Supported Hardware
 
+The shield version should match (v2 or v3) what is written on the box of your kit. The shield version is also written on the bottom right of the back side (for v3 shields) or on the left side of the top (for v2 shields).
+
 | Shield version | How to select |
 |----------------|--------------|
-| v3.0.0+ | Default - just `#include <SnappyXOShield.h>` |
-| v2.0.0+ | Define `SNAPPYXO_SHIELDV2` *before* the `#include` |
+| v3.0.0 | Default - just `#include <SnappyXOShield.h>` |
+| v2.x.x | Define `SNAPPYXO_SHIELDV2` *before* the `#include` |
 
-!!! note "Bought a kit after 2026?"
-    You have a v3 shield. Ignore all v2 information on this page.
+--8<-- "snippets/v2-note.md"
 
 ## Key Features
 

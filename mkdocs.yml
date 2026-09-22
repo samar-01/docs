@@ -38,6 +38,8 @@ markdown_extensions:
   - attr_list
   - toc:
       permalink: true
+  - pymdownx.snippets:
+      base_path: docs
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/compare-versions@6/lib/umd/index.js

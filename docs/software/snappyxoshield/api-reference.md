@@ -145,8 +145,7 @@ Low-level motor write. `leftSpeed` and `rightSpeed` are -255 to +255; positive =
 
 ## Shield v2.0.0+
 
-!!! note "Bought a kit after 2026?"
-    You have a v3 shield. Ignore this section.
+--8<-- "snippets/v2-note.md"
 
 For Shield v2.0.0+ only, define `SNAPPYXO_SHIELDV2` **before** the include:
 

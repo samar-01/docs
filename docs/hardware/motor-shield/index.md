@@ -4,7 +4,10 @@ The SnappyXO Motor Shield stacks onto an Arduino Uno and provides regulated powe
 
 [Get started](getting-started.md) | [Power](power.md) | [Connectors](connectors.md) | [Expansion](expansion.md)
 
-![SnappyXO Motor Shield v3](motorshieldv3.avif)
+<div style="display: flex; gap: 1rem;">
+  <img src="motorshieldv3.avif" style="width: 48%;">
+  <img src="motorshieldv3back.avif" style="width: 48%;">
+</div>
 
 ---
 
@@ -51,13 +54,14 @@ See the [Power](power.md) page for details on how power sources interact and rec
 
 ## Shield Versions
 
-| Version | Notes |
-|---------|-------|
-| v3.0.0+ | Current version - default pin mapping |
-| v2.0.0+ | Previous version - select with `#define SNAPPYXO_SHIELDV2` |
+The shield version should match (v2 or v3) what is written on the box of your kit. The shield version is also written on the bottom right of the back side (for v3 shields) or on the left side of the top (for v2 shields).
 
-!!! note "Bought a kit after 2026?"
-    You have a v3 shield. Ignore all v2 information on this page.
+| Version | Notes |Produced from|
+|---------|-------|-------------|
+| v3.0.0 | version - default pin mapping | 2026 - Present |
+| v2.x.x | Previous version - select with `#define SNAPPYXO_SHIELDV2`. Also requires different power options. | 2022 - 2026|
+
+--8<-- "snippets/v2-note.md"
 
 ---
 

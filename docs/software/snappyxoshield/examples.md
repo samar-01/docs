@@ -74,8 +74,7 @@ The app sends joystick values in the range 0-1024; subtracting 512 maps them to 
 
 ## BasicMotorControl_ShieldV2
 
-!!! note "Bought a kit after 2026?"
-    You have a v3 shield. Ignore this example and use `BasicMotorControl` instead.
+--8<-- "snippets/v2-note.md"
 
 Identical logic to `BasicMotorControl`, but targets the **SnappyXO Motor Shield v2**. The only difference is the `#define` before the include.
 

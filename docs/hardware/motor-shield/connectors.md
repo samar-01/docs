@@ -38,8 +38,7 @@
 
 ### Shield v2.0.0+
 
-!!! note "Bought a kit after 2026?"
-    You have a v3 shield. Ignore this section.
+--8<-- "snippets/v2-note.md"
 
 | Signal | Left motor | Right motor |
 |--------|-----------|------------|
