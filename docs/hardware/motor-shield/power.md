@@ -4,7 +4,7 @@
 
 | Parameter | Value |
 |-----------|-------|
-| Input voltage | 3-13 V |
+| Input voltage | 3-12 V |
 | Supported batteries | 6 V pack, 9 V battery, 1S-3S LiPo |
 | Regulated output | 6 V (buck-boost regulator) |
 | Reverse polarity protection | Yes |
