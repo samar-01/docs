@@ -12,10 +12,13 @@ docs/
   software/
     microblue/                    - MicroBlue library docs
     snappyxoshield/               - SnappyXOShield library docs
+    snappyxoexamples/             - SnappyXO Examples install page
   hardware/
     motor-shield/                 - SnappyXO Motor Shield hardware doc
   javascripts/
     version-check.js              - Version banner and version display script
+  snippets/
+    v2-note.md                    - Shared "Bought after 2026?" admonition (included wherever v2 is mentioned)
 ```
 
 ---
@@ -42,7 +45,7 @@ Update the `DOCUMENTED` constant at the top of the file:
 ```js
 const DOCUMENTED = {
   microblue: "2.0.0",
-  snappyxoshield: "0.2.0",
+  snappyxoshield: "0.2.1",
 };
 ```
 
@@ -81,8 +84,15 @@ Edit only the pages relevant to what changed. The files for each library are:
 |------|---------------|
 | `index.md` | Electrical specs, compatible boards, or shield versions change |
 | `getting-started.md` | Setup steps or battery/connector guidance changes |
+| `power.md` | Power specs, battery recommendations, or power setup guidance changes |
 | `connectors.md` | Pin mappings or connector descriptions change |
 | `expansion.md` | PCA9685, ICSP, or solder pad details change |
+
+### SnappyXO Examples (`docs/software/snappyxoexamples/`)
+
+| File | Update when... |
+|------|---------------|
+| `index.md` | Installation steps change or the repo is renamed |
 
 ---
 

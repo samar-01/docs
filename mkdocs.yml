@@ -59,6 +59,8 @@ nav:
       - Getting Started: software/snappyxoshield/getting-started.md
       - API Reference: software/snappyxoshield/api-reference.md
       - Examples: software/snappyxoshield/examples.md
+    - SnappyXOExamples:
+      - Overview: software/snappyxoexamples/index.md
   - Hardware:
     - SnappyXO Motor Shield:
       - Overview: hardware/motor-shield/index.md

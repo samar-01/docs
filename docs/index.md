@@ -22,6 +22,14 @@ Simplified motor control for the **SnappyXO Motor Shield**. Full-speed and varia
 
 ---
 
+### [SnappyXOExamples](software/snappyxoexamples/index.md)
+
+A collection of example sketches for SnappyXO hardware and libraries. Useful as a starting point for common robot behaviours.
+
+[Get started](software/snappyxoexamples/index.md)
+
+---
+
 ## Hardware
 
 ### [SnappyXO Motor Shield](hardware/motor-shield/index.md)
