@@ -1183,7 +1183,11 @@
 <h1 id="snappyxo-motor-shield">SnappyXO Motor Shield<a class="headerlink" href="#snappyxo-motor-shield" title="Permanent link">&para;</a></h1>
 <p>The SnappyXO Motor Shield stacks onto an Arduino Uno and provides regulated power, motor control, and servo output for robotics projects.</p>
 <p><a href="getting-started/">Get started</a> | <a href="power/">Power</a> | <a href="connectors/">Connectors</a> | <a href="expansion/">Expansion</a></p>
-<p><img alt="SnappyXO Motor Shield v3" src="motorshieldv3.avif" /></p>
+<div style="display: flex; gap: 1rem;">
+  <img src="motorshieldv3.avif" style="width: 48%;">
+  <img src="motorshieldv3back.avif" style="width: 48%;">
+</div>
+
 <hr />
 <h2 id="compatible-boards">Compatible Boards<a class="headerlink" href="#compatible-boards" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1277,27 +1281,31 @@
 </table>
 <hr />
 <h2 id="shield-versions">Shield Versions<a class="headerlink" href="#shield-versions" title="Permanent link">&para;</a></h2>
+<p>The shield version should match (v2 or v3) what is written on the box of your kit. The shield version is also written on the bottom right of the back side (for v3 shields) or on the left side of the top (for v2 shields).</p>
 <table>
 <thead>
 <tr>
 <th>Version</th>
 <th>Notes</th>
+<th>Produced from</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>v3.0.0+</td>
-<td>Current version - default pin mapping</td>
+<td>v3.0.0</td>
+<td>version - default pin mapping</td>
+<td>2026 - Present</td>
 </tr>
 <tr>
-<td>v2.0.0+</td>
-<td>Previous version - select with <code>#define SNAPPYXO_SHIELDV2</code></td>
+<td>v2.x.x</td>
+<td>Previous version - select with <code>#define SNAPPYXO_SHIELDV2</code>. Also requires different power options.</td>
+<td>2022 - 2026</td>
 </tr>
 </tbody>
 </table>
 <div class="admonition note">
 <p class="admonition-title">Bought a kit after 2026?</p>
-<p>You have a v3 shield. Ignore all v2 information on this page.</p>
+<p>You have a v3 shield. Ignore all information about the v2 shield.</p>
 </div>
 <hr />
 <h2 id="software-library">Software Library<a class="headerlink" href="#software-library" title="Permanent link">&para;</a></h2>
