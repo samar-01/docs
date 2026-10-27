@@ -104,8 +104,7 @@ void brake();
 ### `drive()`
 
 ```cpp
-void drive(int throttle, int steering);
-void drive(int throttle, int steering, bool squareThrottle, bool squareSteering);
+void drive(int throttle, int steering, bool squareThrottle = true, bool squareSteering = true);
 ```
 
 Drives a two-wheeled car like a joystick.
@@ -115,11 +114,7 @@ Drives a two-wheeled car like a joystick.
 | `throttle` | -255 to 255 | Forward (+) / backward (-) |
 | `steering` | -255 to 255 | Right (+) / left (-) |
 
-Before mixing, `drive()` shapes the inputs to make the car easier to drive:
-
-1. **Values under 10 count as 0**, so a thumb resting near center doesn't creep or turn.
-2. **Steering is squared** (sign preserved) by default - small pushes give fine corrections, a full push still turns fully. Pass `squareThrottle`/`squareSteering` as `false` to drive an axis linearly instead.
-3. **Turning uses a share of the motors' power** - see `setTurnSpeed()` below.
+Before mixing, each input is squared (sign preserved) by default - small pushes give fine corrections, a full push still turns fully. Pass `squareThrottle`/`squareSteering` as `false` to drive an axis linearly instead.
 
 It then mixes the shaped values into wheel speeds: `left = throttle + steering`, `right = throttle - steering`. If either exceeds the ±255 range, both wheels are scaled down by the same factor, preserving the turn's shape. Zero throttle with nonzero steering spins the car in place.
 
@@ -135,14 +130,6 @@ shield.drive(0, -150);
 ```
 
 To set each wheel's speed exactly, with no shaping, use `setMotors()`.
-
-### `setTurnSpeed()`
-
-```cpp
-void setTurnSpeed(int percent);
-```
-
-How much of the motors' power `drive()` uses for turning, 0-100 (60 when not set). A full sideways push at the default turns at 153 instead of 255. Lower for gentler steering, 100 for the full range.
 
 ---
 

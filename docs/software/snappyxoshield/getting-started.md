@@ -87,4 +87,4 @@ See the [API Reference](api-reference.md) for full details.
 ## Next Steps
 
 - [API Reference](api-reference.md) - all methods documented
-- [Examples](examples.md) - BasicMotorControl, the no-library version, and the MicroBlue drive example
+- [Examples](examples.md) - BasicMotorControl and the MicroBlue drive example

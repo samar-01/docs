@@ -19,7 +19,7 @@ The shield version should match (v2 or v3) what is written on the box of your ki
 - In-place spin turns (`spinLeft()` / `spinRight()`)
 - Per-wheel speed control with `setMotors(left, right)`
 - Coasting stop (`stop()`) and instant active brake (`brake()`)
-- `drive(throttle, steering)` joystick-style mixing, with input shaping (`setTurnSpeed()`) for gentler steering
+- `drive(throttle, steering)` joystick-style mixing, with squared inputs for gentler steering
 - `invertLeft()`, `invertRight()`, `swapMotors()` for reversed or swapped wiring
 
 ## Installation
