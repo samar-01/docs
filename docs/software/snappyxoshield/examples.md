@@ -6,103 +6,91 @@ All examples ship with the library and are accessible via **File → Examples �
 
 ## BasicMotorControl
 
-A simple timed sequence: forward → reverse → turn left → turn right → pause. Good for verifying that wiring and motor direction are correct.
+A timed sequence exercising every movement call. Good for verifying that wiring and motor direction are correct.
 
 ```cpp
 #include <SnappyXOShield.h>
 
+SnappyXOShield shield(SnappyXOShield::V3);  // the shield version printed on the board: V3 or V2
+
 void setup() {
-  initMotors();
+  shield.begin();  // sets up the motor pins
+
+  // If a wheel turns the wrong way, uncomment the line that fixes it:
+  // shield.invertLeft();   // the left motor turns backward when it should go forward
+  // shield.invertRight();  // the right motor turns backward when it should go forward
+  // shield.swapMotors();   // the left and right motors are plugged in the other way round
 }
 
 void loop() {
-  forward();
+  shield.forward();  // both wheels forward at full speed (255)
   delay(1000);
 
-  reverse();
+  shield.reverse(150);  // both wheels backward at speed 150 (0-255)
   delay(1000);
 
-  turnLeft();
+  shield.spinLeft();  // left wheel backward, right wheel forward: spins left in place
   delay(500);
 
-  turnRight();
+  shield.spinRight();  // left wheel forward, right wheel backward: spins right in place
   delay(500);
 
-  pause();
+  shield.setMotors(255, 100);  // each wheel's speed, -255 to 255: left faster, so it curves right
+  delay(1000);
+
+  shield.drive(200, -100);  // joystick-style: throttle 200 (forward), steering -100 (left)
+  delay(1000);
+
+  shield.stop();  // cuts the power, the robot coasts to a stop
   delay(1000);
 }
 ```
 
 ---
 
-## MicroBlueRobot
+## MicroBlueDrive
 
-Bluetooth-controlled robot using the [MicroBlue](../microblue/index.md) library and the UNO R4 WiFi's built-in BLE. The MicroBlue app sends joystick data as two comma-separated integers (steering, throttle) under message IDs `"d0"` or `"d1"`.
+Drives from the MicroBlue app's Drive screen, using the UNO R4 WiFi's built-in Bluetooth. The robot stops if the phone disconnects or the app's heartbeat stops.
 
-**Requires**: MicroBlue library (install separately from Library Manager).
+**Requires**: MicroBlue library 2.1 or later (install separately from Library Manager).
 
 ```cpp
-// This example shows driving with the MicroBlue app on Arduino UNO R4 WiFi.
-// Must install MicroBlue library to use.
-
 #include <MicroBlue.h>
 #include <SnappyXOShield.h>
 
-MicroBlueManager manager;
+MicroBlueManager manager;  // talks to the MicroBlue app over the built-in Bluetooth
+SnappyXOShield shield(SnappyXOShield::V3);  // v3 shield
 
 void setup() {
-  initMotors();
-  manager.begin("My BLE Module");
+  shield.begin();  // sets up the motor pins
+  // If a wheel turns backward when it should go forward, uncomment its line:
+  // shield.invertLeft();   // left wheel
+  // shield.invertRight();  // right wheel
+
+  manager.begin("SnappyXO Robot");  // the name the app shows when you connect: change it to tell robots apart
 }
 
 void loop() {
-  MicroBlueMessage msg = manager.read();
+  if (manager.isConnected()) {
+    MicroBlueMessage msg = manager.read();  // the latest message from the app, if any
 
-  if (msg.id == "d0" || msg.id == "d1") {
-    int throttle, steering;
-    sscanf(msg.value.c_str(), "%d,%d", &steering, &throttle);
-    throttle -= 512;  // centre around 0
-    steering -= 512;
-    drive(throttle, steering);
+    // The D-Pad, Joystick and Tilt send "x,y" on IDs d0 and d1, each 0-1023:
+    // 1023 is right or forward, 0 is left or back, and 512,512 is the center (stop)
+    if (msg.id == "d0" || msg.id == "d1") {
+      int x, y;
+      if (sscanf(msg.value.c_str(), "%d,%d", &x, &y) == 2) {
+        int throttle = map(y, 0, 1023, -255, 255);  // forward and back
+        int steering = map(x, 0, 1023, -255, 255);  // left and right
+        shield.drive(throttle, steering);
+      }
+    }
+  }
+
+  // Checked outside isConnected(), so the robot also stops after a disconnect
+  if (!manager.isConnected() || manager.heartbeatLost()) {
+    shield.stop();
   }
 }
 ```
 
-The app sends joystick values in the range 0-1024; subtracting 512 maps them to the -512 to +512 range expected by `drive()`. See the [MicroBlue examples](../microblue/examples.md) for more BLE communication patterns.
-
----
-
-## BasicMotorControl_ShieldV2
-
---8<-- "snippets/v2-note.md"
-
-Identical logic to `BasicMotorControl`, but targets the **SnappyXO Motor Shield v2**. The only difference is the `#define` before the include.
-
-```cpp
-// WARNING: This sketch is for the SnappyXO Motor Shield v2 ONLY.
-// Do not upload this to a board using any other shield version.
-
-#define SNAPPYXO_SHIELDV2
-#include <SnappyXOShield.h>
-
-void setup() {
-  initMotors();
-}
-
-void loop() {
-  forward();
-  delay(1000);
-
-  reverse();
-  delay(1000);
-
-  turnLeft();
-  delay(500);
-
-  turnRight();
-  delay(500);
-
-  pause();
-  delay(1000);
-}
-```
+See the [MicroBlue examples](../microblue/examples.md) for more BLE communication patterns.

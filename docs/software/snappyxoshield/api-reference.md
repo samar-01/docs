@@ -1,90 +1,93 @@
 # API Reference
 
-Include the library with:
+Include the library and create a shield object, naming the version printed on the board:
 
 ```cpp
 #include <SnappyXOShield.h>
+
+SnappyXOShield shield(SnappyXOShield::V3);  // or SnappyXOShield::V2
 ```
 
-The library is header-only - all functions are defined in `SnappyXOShield.h`.
+There's no default version - `SnappyXOShield shield;` without one, it fails to compile, with a message telling you to add it.
+
+Speeds run from **-255** (full backward) to **255** (full forward); 0 is stop. Values outside that range are clamped.
 
 ---
 
 ## Initialisation
 
-### `initMotors()`
+### `begin()`
 
 ```cpp
-void initMotors(bool invertL = false, bool invertR = false, bool invertLR = false);
+void begin();
 ```
 
-Sets all motor pins as outputs and configures inversion flags. Call once in `setup()`.
+Sets the motor pins as outputs and stops both motors. Call once in `setup()`.
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `invertL` | `false` | Reverse the left motor's direction |
-| `invertR` | `false` | Reverse the right motor's direction |
-| `invertLR` | `false` | Swap left and right motors entirely |
+---
+
+## Motors That Turn the Wrong Way
+
+Call these in `setup()`, after `begin()`.
+
+### `invertLeft()` / `invertRight()`
 
 ```cpp
-initMotors();                    // no inversions
-initMotors(true, false, false);  // left motor reversed
-initMotors(false, false, true);  // left and right swapped
+void invertLeft(bool invert = true);
+void invertRight(bool invert = true);
 ```
+
+Reverses the motor on the shield's left or right output.
+
+### `swapMotors()`
+
+```cpp
+void swapMotors(bool swap = true);
+```
+
+Swaps the left and right outputs, for motors plugged in the other way round.
 
 ---
 
 ## Movement Commands
 
-All movement functions call the internal `_motorWrite(leftSpeed, rightSpeed)` helper, which respects the inversion flags set by `initMotors()`.
-
-### `forward()`
+### `forward()` / `reverse()`
 
 ```cpp
-void forward();
-void forward(int speed);
+void forward(int speed = 255);
+void reverse(int speed = 255);
 ```
 
-Drives both motors forward. `speed` is 0-255 (full speed when omitted).
+Drives both wheels forward or backward. `speed` is 0-255 (full speed when omitted).
 
-### `reverse()`
+### `spinLeft()` / `spinRight()`
 
 ```cpp
-void reverse();
-void reverse(int speed);
+void spinLeft(int speed = 255);
+void spinRight(int speed = 255);
 ```
 
-Drives both motors in reverse. `speed` is 0-255.
+Spins in place: `spinLeft()` drives the left wheel backward and the right wheel forward; `spinRight()` is the reverse. `speed` is 0-255.
 
-### `turnLeft()`
+### `setMotors()`
 
 ```cpp
-void turnLeft();
-void turnLeft(int speed);
+void setMotors(int left, int right);
 ```
 
-Pivots left in place - left motor backward, right motor forward. `speed` is 0-255.
-
-### `turnRight()`
-
-```cpp
-void turnRight();
-void turnRight(int speed);
-```
-
-Pivots right in place - left motor forward, right motor backward. `speed` is 0-255.
+Sets each wheel's speed directly, -255 to 255, with no shaping. Applies the inversion/swap flags set above.
 
 ---
 
 ## Stop Functions
 
-### `pause()`
+### `stop()`
 
 ```cpp
-void pause();
+void stop();
 ```
 
-**Coasting stop.** Sets both Enable (PWM) pins to 0, letting the motors spin down naturally. Use when a smooth, gradual stop is acceptable.
+**Coasting stop.** Cuts power to both motors (Enable/PWM pins to 0); the robot rolls to a halt. Use when a smooth, gradual stop is acceptable.
 
 ### `brake()`
 
@@ -102,54 +105,52 @@ void brake();
 
 ```cpp
 void drive(int throttle, int steering);
+void drive(int throttle, int steering, bool squareThrottle, bool squareSteering);
 ```
 
-Joystick-style differential drive. Mixes throttle and steering into independent left/right motor speeds.
+Drives a two-wheeled car like a joystick.
 
 | Parameter | Range | Description |
-|-----------|-------|-------------|
-| `throttle` | -512 to +512 | Forward (+) / reverse (-) |
-| `steering` | -512 to +512 | Right (+) / left (-) |
+|-----------|-------|--------------|
+| `throttle` | -255 to 255 | Forward (+) / backward (-) |
+| `steering` | -255 to 255 | Right (+) / left (-) |
 
-**Behaviour:**
+Before mixing, `drive()` shapes the inputs to make the car easier to drive:
 
-- `left = throttle + steering`, `right = throttle - steering`
-- If either value exceeds ±512, both are scaled down proportionally, preserving the speed ratio
-- Zero throttle with non-zero steering produces in-place turns
-- The dead-zone-free design means small joystick inputs still produce movement
+1. **Values under 10 count as 0**, so a thumb resting near center doesn't creep or turn.
+2. **Steering is squared** (sign preserved) by default - small pushes give fine corrections, a full push still turns fully. Pass `squareThrottle`/`squareSteering` as `false` to drive an axis linearly instead.
+3. **Turning uses a share of the motors' power** - see `setTurnSpeed()` below.
+
+It then mixes the shaped values into wheel speeds: `left = throttle + steering`, `right = throttle - steering`. If either exceeds the ±255 range, both wheels are scaled down by the same factor, preserving the turn's shape. Zero throttle with nonzero steering spins the car in place.
 
 ```cpp
 // Full speed forward
-drive(512, 0);
+shield.drive(255, 0);
 
 // Turn right at half speed
-drive(256, 128);
+shield.drive(128, 64);
 
 // Spin left in place
-drive(0, -300);
+shield.drive(0, -150);
 ```
 
----
+To set each wheel's speed exactly, with no shaping, use `setMotors()`.
 
-## Internal Helper
-
-### `_motorWrite()` *(internal)*
+### `setTurnSpeed()`
 
 ```cpp
-void _motorWrite(int leftSpeed, int rightSpeed);
+void setTurnSpeed(int percent);
 ```
 
-Low-level motor write. `leftSpeed` and `rightSpeed` are -255 to +255; positive = forward. Applies inversion flags and sets the H-bridge pins directly. Prefer the named movement functions over calling this directly.
+How much of the motors' power `drive()` uses for turning, 0-100 (60 when not set). A full sideways push at the default turns at 153 instead of 255. Lower for gentler steering, 100 for the full range.
 
 ---
 
-## Shield v2.0.0+
+## Shield Versions
+
+| | v3 | v2 |
+|---|---|---|
+| Board | UNO R4 WiFi, or UNO R3 | UNO R3 with an HM-10 module |
+| In the sketch | `SnappyXOShield shield(SnappyXOShield::V3);` | `SnappyXOShield shield(SnappyXOShield::V2);` |
 
 --8<-- "snippets/v2-note.md"
-
-For Shield v2.0.0+ only, define `SNAPPYXO_SHIELDV2` **before** the include:
-
-```cpp
-#define SNAPPYXO_SHIELDV2
-#include <SnappyXOShield.h>
-```

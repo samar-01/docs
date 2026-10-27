@@ -18,21 +18,28 @@
 
 ---
 
-## Shield v3.0.0+
+## Declare Your Shield
 
-No special setup required. Just include the library:
+Every sketch names the shield version printed on the board - there's no default:
 
 ```cpp
 #include <SnappyXOShield.h>
+
+SnappyXOShield shield(SnappyXOShield::V3);  // or SnappyXOShield::V2
 ```
 
 **Pin mapping:**
 
-| Signal | Left motor | Right motor |
-|--------|-----------|------------|
-| IN1 | 4 | 8 |
-| IN2 | 7 | 9 |
-| Enable (PWM) | 5 | 6 |
+| Signal | v3 left | v3 right | v2 left | v2 right |
+|--------|---------|----------|---------|----------|
+| IN1 | 4 | 8 | 4 | 12 |
+| IN2 | 7 | 9 | 5 | 13 |
+| Enable (PWM) | 5 | 6 | 6 | 11 |
+| Servo headers | A0, A1, A2, A3 | | 9, 10, A0, A1 | |
+
+The library only sets up the motor pins - a sketch shouldn't use them for anything else. On the UNO R3, the IRremote library takes over the timer behind pin 11, so an IR receiver and the v2 shield's motors don't work together; the v3 shield's speed pins (5 and 6) aren't affected.
+
+--8<-- "snippets/v2-note.md"
 
 ---
 
@@ -41,18 +48,20 @@ No special setup required. Just include the library:
 ```cpp
 #include <SnappyXOShield.h>
 
+SnappyXOShield shield(SnappyXOShield::V3);
+
 void setup() {
-  initMotors();
+  shield.begin();
 }
 
 void loop() {
-  forward();
+  shield.forward();
   delay(1000);
 
-  reverse();
+  shield.reverse();
   delay(1000);
 
-  pause();
+  shield.stop();
   delay(500);
 }
 ```
@@ -61,14 +70,14 @@ void loop() {
 
 ## Motor Inversion
 
-If your motors are wired in reverse, or left and right are swapped, pass flags to `initMotors()`:
+If a wheel turns the wrong way, or left and right are swapped, call these in `setup()` after `begin()`:
 
 ```cpp
-// Invert the left motor only
-initMotors(true, false, false);
+shield.begin();
 
-// Swap left and right entirely
-initMotors(false, false, true);
+shield.invertLeft();   // left motor turns the wrong way
+shield.invertRight();  // right motor turns the wrong way
+shield.swapMotors();   // left and right are plugged in the other way round
 ```
 
 See the [API Reference](api-reference.md) for full details.
@@ -77,26 +86,5 @@ See the [API Reference](api-reference.md) for full details.
 
 ## Next Steps
 
-- [API Reference](api-reference.md) - all functions documented
-- [Examples](examples.md) - BasicMotorControl, v2 variant, and MicroBlue robot
-
----
-
-## Other Hardware - Shield v2.0.0+
-
---8<-- "snippets/v2-note.md"
-
-Define `SNAPPYXO_SHIELDV2` **before** the `#include` to select the v2 pin mapping:
-
-```cpp
-#define SNAPPYXO_SHIELDV2
-#include <SnappyXOShield.h>
-```
-
-**Pin mapping:**
-
-| Signal | Left motor | Right motor |
-|--------|-----------|------------|
-| IN1 | 4 | 12 |
-| IN2 | 5 | 13 |
-| Enable (PWM) | 6 | 11 |
+- [API Reference](api-reference.md) - all methods documented
+- [Examples](examples.md) - BasicMotorControl, the no-library version, and the MicroBlue drive example
