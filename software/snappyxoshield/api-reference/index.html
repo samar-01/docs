@@ -968,17 +968,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#setturnspeed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        setTurnSpeed()
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1469,8 +1458,7 @@
 <hr />
 <h2 id="differential-drive">Differential Drive<a class="headerlink" href="#differential-drive" title="Permanent link">&para;</a></h2>
 <h3 id="drive"><code>drive()</code><a class="headerlink" href="#drive" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">drive</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">throttle</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">steering</span><span class="p">);</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">drive</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">throttle</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">steering</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">squareThrottle</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">squareSteering</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">drive</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">throttle</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">steering</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">squareThrottle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">squareSteering</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 </code></pre></div>
 <p>Drives a two-wheeled car like a joystick.</p>
 <table>
@@ -1494,12 +1482,7 @@
 </tr>
 </tbody>
 </table>
-<p>Before mixing, <code>drive()</code> shapes the inputs to make the car easier to drive:</p>
-<ol>
-<li><strong>Values under 10 count as 0</strong>, so a thumb resting near center doesn't creep or turn.</li>
-<li><strong>Steering is squared</strong> (sign preserved) by default - small pushes give fine corrections, a full push still turns fully. Pass <code>squareThrottle</code>/<code>squareSteering</code> as <code>false</code> to drive an axis linearly instead.</li>
-<li><strong>Turning uses a share of the motors' power</strong> - see <code>setTurnSpeed()</code> below.</li>
-</ol>
+<p>Before mixing, each input is squared (sign preserved) by default - small pushes give fine corrections, a full push still turns fully. Pass <code>squareThrottle</code>/<code>squareSteering</code> as <code>false</code> to drive an axis linearly instead.</p>
 <p>It then mixes the shaped values into wheel speeds: <code>left = throttle + steering</code>, <code>right = throttle - steering</code>. If either exceeds the ±255 range, both wheels are scaled down by the same factor, preserving the turn's shape. Zero throttle with nonzero steering spins the car in place.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1">// Full speed forward</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">shield</span><span class="p">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
@@ -1511,10 +1494,6 @@
 <a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="n">shield</span><span class="p">.</span><span class="n">drive</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">-150</span><span class="p">);</span>
 </code></pre></div>
 <p>To set each wheel's speed exactly, with no shaping, use <code>setMotors()</code>.</p>
-<h3 id="setturnspeed"><code>setTurnSpeed()</code><a class="headerlink" href="#setturnspeed" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setTurnSpeed</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">percent</span><span class="p">);</span>
-</code></pre></div>
-<p>How much of the motors' power <code>drive()</code> uses for turning, 0-100 (60 when not set). A full sideways push at the default turns at 153 instead of 255. Lower for gentler steering, 100 for the full range.</p>
 <hr />
 <h2 id="shield-versions">Shield Versions<a class="headerlink" href="#shield-versions" title="Permanent link">&para;</a></h2>
 <table>
