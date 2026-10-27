@@ -1,7 +1,7 @@
 (async function () {
   const DOCUMENTED = {
     microblue: "2.0.0",
-    snappyxoshield: "0.2.1",
+    snappyxoshield: "0.3.0",
   };
 
   const REPOS = {

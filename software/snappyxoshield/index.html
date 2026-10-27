@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -31,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -878,6 +878,97 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SnappyXOExamples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SnappyXOExamples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../snappyxoexamples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1162,24 +1253,24 @@
 
 
 <h1 id="snappyxo-motor-shield">SnappyXO Motor Shield<a class="headerlink" href="#snappyxo-motor-shield" title="Permanent link">&para;</a></h1>
-<p>SnappyXOShield is an Arduino library for simplified motor control with the SnappyXO Motor Shield. It exposes intuitive movement commands - <code>forward()</code>, <code>reverse()</code>, <code>turnLeft()</code>, <code>turnRight()</code> - as well as speed variants and a joystick-style <code>drive()</code> function for analog/BLE-controlled robots.</p>
+<p>SnappyXOShield is an Arduino library for driving the two motors on the SnappyXO Motor Shield. Everything lives in a <code>SnappyXOShield</code> object - <code>shield.forward()</code>, <code>shield.reverse()</code>, <code>shield.spinLeft()</code>, <code>shield.spinRight()</code> - plus speed variants and a joystick-style <code>shield.drive()</code> for analog/BLE-controlled robots.</p>
 <h2 id="supported-hardware">Supported Hardware<a class="headerlink" href="#supported-hardware" title="Permanent link">&para;</a></h2>
-<p>The shield version should match (v2 or v3) what is written on the box of your kit. The shield version is also written on the bottom right of the back side (for v3 shields) or on the left side of the top (for v2 shields).</p>
+<p>The shield version should match (v2 or v3) what is written on the box of your kit. The shield version is also written on the bottom right of the back side (for v3 shields) or on the left side of the top (for v2 shields). There's no default - every sketch declares which one it's written for:</p>
 <table>
 <thead>
 <tr>
 <th>Shield version</th>
-<th>How to select</th>
+<th>In the sketch</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>v3.0.0</td>
-<td>Default - just <code>#include &lt;SnappyXOShield.h&gt;</code></td>
+<td>v3</td>
+<td><code>SnappyXOShield shield(SnappyXOShield::V3);</code></td>
 </tr>
 <tr>
-<td>v2.x.x</td>
-<td>Define <code>SNAPPYXO_SHIELDV2</code> <em>before</em> the <code>#include</code></td>
+<td>v2</td>
+<td><code>SnappyXOShield shield(SnappyXOShield::V2);</code></td>
 </tr>
 </tbody>
 </table>
@@ -1190,19 +1281,19 @@
 <h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Full-speed and variable-speed movement commands</li>
-<li>In-place pivot turns</li>
-<li>Gradual coast stop (<code>pause()</code>) and instant active brake (<code>brake()</code>)</li>
-<li><code>drive(throttle, steering)</code> differential mixing with clamping - no dead zones</li>
-<li>Motor inversion flags for reversed or swapped wiring</li>
-<li>Header-only - no <code>.cpp</code> file to compile</li>
+<li>In-place spin turns (<code>spinLeft()</code> / <code>spinRight()</code>)</li>
+<li>Per-wheel speed control with <code>setMotors(left, right)</code></li>
+<li>Coasting stop (<code>stop()</code>) and instant active brake (<code>brake()</code>)</li>
+<li><code>drive(throttle, steering)</code> joystick-style mixing, with input shaping (<code>setTurnSpeed()</code>) for gentler steering</li>
+<li><code>invertLeft()</code>, <code>invertRight()</code>, <code>swapMotors()</code> for reversed or swapped wiring</li>
 </ul>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>Install from the <strong>Arduino Library Manager</strong>: search for <code>SnappyXOShield</code> and click Install.</p>
 <h2 id="source">Source<a class="headerlink" href="#source" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Version</strong>: <span id="lib-version-snappyxoshield">0.2.0</span></li>
+<li><strong>Version</strong>: <span id="lib-version-snappyxoshield">0.3.0</span></li>
 <li><strong>GitHub</strong>: <a href="https://github.com/snappyxo/SnappyXOShield">snappyxo/SnappyXOShield</a></li>
-<li><strong>License</strong>: GPL-3.0</li>
+<li><strong>License</strong>: MIT</li>
 </ul>
 
 
@@ -1259,10 +1350,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "toc.integrate", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/compare-versions@6/lib/umd/index.js"></script>
       
